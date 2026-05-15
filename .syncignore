@@ -1,0 +1,13 @@
+# === 我自己的文件，永远不被上游覆盖/删除 ===
+# 文档类
+README.md
+LICENSE
+CHANGELOG.md
+# 我维护的补丁
+patch-*.patch
+# 自定义脚本/配置
+my-scripts/
+custom.config
+.github/
+# 保护自己
+.syncignore
