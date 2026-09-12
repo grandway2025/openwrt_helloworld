@@ -7,9 +7,14 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-adguardhome
 PKG_VERSION:=1.8
-PKG_RELEASE:=13
+PKG_RELEASE:=14
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+
+# 译文 .lmo 由 luci-base 的宿主工具 po2lmo 生成；若不声明该构建依赖，
+# po2lmo 不存在时 install 段的 `which po2lmo ... || true` 会静默跳过，
+# 导致产出的 ipk 缺少中英文翻译（CI 曾长期如此）。
+PKG_BUILD_DEPENDS:=luci-base/host
 
 include $(INCLUDE_DIR)/package.mk
 
